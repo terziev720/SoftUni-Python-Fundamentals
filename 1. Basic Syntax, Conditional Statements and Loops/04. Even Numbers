@@ -1,0 +1,13 @@
+number = int(input())
+
+allEven = True 
+
+for _ in range(number):
+    numberOne = int(input())
+    if numberOne % 2 == 1:
+        print(f"{numberOne} is odd!")
+        allEven = False
+        break  
+
+if allEven:
+    print("All numbers are even.")
