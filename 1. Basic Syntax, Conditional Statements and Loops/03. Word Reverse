@@ -1,0 +1,7 @@
+word = input()  
+
+wrd = ""
+for i in range(len(word)-1, -1, -1):
+    wrd += word[i]
+
+print(wrd)
