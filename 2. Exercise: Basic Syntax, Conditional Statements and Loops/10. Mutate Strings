@@ -1,0 +1,11 @@
+first_string = input()
+second_string = input()
+
+previous_version = first_string
+
+for i in range(len(first_string)):
+    new_version = second_string[:i+1] + first_string[i+1:]
+    
+    if new_version != previous_version:
+        print(new_version)
+        previous_version = new_version  
