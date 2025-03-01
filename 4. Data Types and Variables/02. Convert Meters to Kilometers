@@ -1,0 +1,3 @@
+meters = int(input())
+
+print(f"{float(meters / 1000):.2f}")
