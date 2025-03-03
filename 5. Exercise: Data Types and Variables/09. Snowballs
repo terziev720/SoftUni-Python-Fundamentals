@@ -1,0 +1,17 @@
+snowballs = int(input())
+
+max_value = float('-inf')
+best_snowball = None 
+
+for i in range(snowballs):
+    weight = int(input())
+    time = int(input())
+    quality = int(input())
+    
+    value = (weight / time) ** quality  
+
+    if value > max_value:
+        max_value = value
+        best_snowball = [weight, time, quality, value] 
+
+print(f"{best_snowball[0]} : {best_snowball[1]} = {best_snowball[3]:.0f} ({best_snowball[2]})")
