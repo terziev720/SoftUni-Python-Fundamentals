@@ -1,0 +1,8 @@
+import math
+
+n_people = int(input())
+capacity = int(input())
+
+course = math.ceil(n_people / capacity)
+
+print(course)
