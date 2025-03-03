@@ -1,0 +1,6 @@
+n_one = int(input())
+n_two = int(input())
+
+for i in range(n_one, n_two + 1):
+    chars = chr((i))
+    print(f"{chars}", end = " ")    
