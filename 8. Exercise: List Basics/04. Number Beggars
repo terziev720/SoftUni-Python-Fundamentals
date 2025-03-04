@@ -1,0 +1,10 @@
+money_list = list(map(int, input().split(", "))) 
+beggars = int(input())  
+
+result = [0] * beggars  
+
+for index in range(len(money_list)):  
+    beggar_index = index % beggars  
+    result[beggar_index] += money_list[index]  
+
+print(result) 
