@@ -1,0 +1,20 @@
+cards = input().split()
+
+team_A = set(range(1, 12))
+team_B = set(range(1, 12))
+
+for card in cards:
+    team, number = card.split("-")
+    number = int(number)
+
+    if team == "A":
+        team_A.discard(number)
+    elif team == "B":
+        team_B.discard(number)
+
+    if len(team_A) < 7 or len(team_B) < 7:
+        print(f"Team A - {len(team_A)}; Team B - {len(team_B)}")
+        print("Game was terminated")
+        break
+else:
+    print(f"Team A - {len(team_A)}; Team B - {len(team_B)}")
