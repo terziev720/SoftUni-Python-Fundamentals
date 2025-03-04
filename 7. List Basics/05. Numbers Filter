@@ -1,0 +1,28 @@
+n = int(input())
+my_list = []
+filtered = []
+
+for i in range(n):
+    number = int(input())
+    my_list.append(number)
+    
+text = input()
+
+if text == "even":
+    for i in my_list:
+        if i % 2 == 0:
+            filtered.append(i)
+elif text == "odd":
+    for i in my_list:
+        if i % 2 != 0:
+            filtered.append(i)
+elif text == "positive":
+    for i in my_list:
+        if i >= 0:
+            filtered.append(i)
+elif text == "negative":
+    for i in my_list:
+        if i < 0:
+            filtered.append(i)
+            
+print(filtered)        
