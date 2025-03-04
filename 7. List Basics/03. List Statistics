@@ -1,0 +1,18 @@
+n = int(input())
+
+list_one = []
+list_two = []
+
+
+for i in range(n):
+    number = int(input())
+        
+    if number >= 0:
+        list_one.append(number)
+    else:
+        list_two.append(number)
+
+print(list_one)
+print(list_two)
+print(f"Count of positives: {len(list_one)}")
+print(f"Sum of negatives: {sum(list_two)}")
