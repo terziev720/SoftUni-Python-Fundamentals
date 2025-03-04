@@ -1,1 +1,11 @@
+n = input().split(" ")
 
+my_list = []
+
+for i in n:
+    if int(i) > 0:
+        my_list.append(-int(i))
+    else:
+        my_list.append(abs(int(i)))
+
+print(my_list)
