@@ -1,0 +1,15 @@
+n = int(input())
+word = input()
+
+my_list = []
+word_list = []
+
+for i in range(n):
+    words = input()
+    my_list.append(words)
+    
+    if word in words:
+        word_list.append(words)
+    
+print(my_list)  
+print(word_list)  
