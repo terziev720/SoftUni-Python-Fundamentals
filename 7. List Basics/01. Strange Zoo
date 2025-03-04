@@ -1,1 +1,6 @@
+tail = input()
+body = input()
+head = input()
 
+merged = [head, body, tail]
+print(merged)
