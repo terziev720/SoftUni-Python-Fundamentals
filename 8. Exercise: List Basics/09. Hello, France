@@ -1,0 +1,30 @@
+items = (input()).split("|")
+budget = float(input())
+
+ticket_price = 150.00
+
+item_types = ["Clothes", "Shoes", "Accessories"]
+max_prices = [50.00, 35.00, 20.50]
+items_bought = []
+
+for item in items:
+    type, price = item.split("->")
+    price = float(price)
+    
+    if type in item_types and price <= max_prices[item_types.index(type)]:
+        if budget >= price:
+            items_bought.append(price)
+            budget -= price
+    
+
+new_prices = [price * 1.40 for price in items_bought] 
+profit = sum(new_prices) - sum(items_bought)  
+budget += sum(new_prices)
+
+print(" ".join(f"{new_price:.2f}" for new_price in new_prices))
+print(f"Profit: {profit:.2f}")
+
+if budget >= ticket_price:
+    print("Hello, France!")
+else:
+    print("Not enough money.")
