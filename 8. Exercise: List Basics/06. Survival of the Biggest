@@ -1,0 +1,7 @@
+text = list(map(int, input().split(" ")))
+n = int(input())
+
+for i in range(n):
+    text.remove(min(text))
+
+print(", ".join(map(str, text)))
