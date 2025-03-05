@@ -1,0 +1,28 @@
+text_fire = input().split("#")
+water = int(input())
+
+values = []
+
+for items in text_fire:
+    type_fire, value = items.split(" = ")
+    value = int(value)
+
+    if type_fire == "High" and not 81 <= value <= 125:
+        continue
+    if type_fire == "Medium" and not 51 <= value <= 80:
+        continue
+    if type_fire == "Low" and not 1 <= value <= 50:
+        continue
+    if water < value:
+        continue
+    values.append(value)
+    water -= value
+        
+effort = sum(values) * 0.25
+total_fire = sum(values)
+
+print("Cells:")
+for cell in values:
+    print(f" - {cell}")
+print(f"Effort: {effort:.2f}")
+print(f"Total Fire: {total_fire}")
