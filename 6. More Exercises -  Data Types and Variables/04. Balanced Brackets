@@ -1,0 +1,26 @@
+n = int(input())  
+balance = 0  
+is_balanced = True  
+
+for i in range(n):
+    line = input()  
+
+    for char in line:
+        if char == "(":
+            if balance > 0:
+                is_balanced = False  
+                break
+            balance += 1
+        elif char == ")":
+            if balance <= 0:
+                is_balanced = False  
+                break
+            balance -= 1
+
+    if not is_balanced:
+        break  
+
+if is_balanced and balance == 0:
+    print("BALANCED")
+else:
+    print("UNBALANCED")
