@@ -1,0 +1,10 @@
+key = int(input())
+n = int(input())
+
+decrypted_message = ""
+
+for i in range(n):
+    chars = input()
+    decrypted_message += chr(ord(chars) + key)
+
+print(decrypted_message)
