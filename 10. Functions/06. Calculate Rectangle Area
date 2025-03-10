@@ -1,0 +1,7 @@
+width = int(input())
+height = int(input())
+
+def my_func():
+    print(width * height)
+
+my_func()
