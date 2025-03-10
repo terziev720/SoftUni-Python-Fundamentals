@@ -1,0 +1,7 @@
+def chars(a, b):
+    return " ".join(chr(i) for i in range(ord(a) + 1, ord(b)))  
+
+char_one = input()
+char_two = input()
+
+print(chars(char_one, char_two))
