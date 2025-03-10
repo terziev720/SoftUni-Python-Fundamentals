@@ -1,0 +1,15 @@
+operator = input()
+num_one = int(input())
+num_two = int(input())
+
+def my_function():
+    if operator == "multiply":
+        print(num_one * num_two)
+    elif operator == "divide":
+        print(int(num_one / num_two))
+    elif operator == "add":
+        print(num_one + num_two)
+    elif operator == "subtract":
+        print(num_one - num_two)
+
+my_function()
