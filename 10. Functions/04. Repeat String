@@ -1,0 +1,7 @@
+my_string = input()
+num = int(input())
+
+repeat_string = lambda a, b: a * b
+
+result = repeat_string(my_string, num)
+print(result)
