@@ -1,5 +1,5 @@
 def smallest_number(a, b, c):
-    return min(a, b, c)  # The easiest and most efficient way
+    return min(a, b, c) 
 
 a_num = int(input())
 b_num = int(input())
