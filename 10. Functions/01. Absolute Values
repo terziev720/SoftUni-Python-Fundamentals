@@ -1,1 +1,8 @@
+text = input().split(" ")
+abs_list = list()
 
+for n in text:
+    current = abs(float(n))
+    abs_list.append(current)
+
+print(abs_list)
