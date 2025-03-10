@@ -1,0 +1,15 @@
+def sum_numbers(a, b):
+    return a + b
+
+def subtract(sum_result, c):
+    return sum_result - c
+
+def add_and_subtract(a, b, c):
+    result = sum_numbers(a, b)
+    return subtract(result, c)
+
+a_num = int(input())
+b_num = int(input())
+c_num = int(input())
+
+print(add_and_subtract(a_num, b_num, c_num))
