@@ -1,0 +1,15 @@
+my_float = float(input())
+
+def func():
+    if 2.99 >= my_float >= 2.00:
+        print("Fail")
+    elif 3.49 >= my_float >= 3.00:
+        print("Poor")
+    elif 4.49 >= my_float >= 3.50:
+        print("Good")
+    elif 5.49 >= my_float >= 4.50:
+        print("Very Good")
+    elif 6.00 >= my_float >= 5.50:
+        print("Excellent")
+
+func()
