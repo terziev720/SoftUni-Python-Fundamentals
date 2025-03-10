@@ -1,0 +1,11 @@
+string = input().split(" ")
+
+rounded = list()
+
+def my_func():
+    for i in string:
+        trans = round(float(i))
+        rounded.append(trans)
+    print(rounded)
+
+my_func()
