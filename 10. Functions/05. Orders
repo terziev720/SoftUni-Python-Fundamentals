@@ -1,0 +1,15 @@
+string = input()
+number = int(input())
+
+def my_func():
+    my_dict = {
+        "coffee": 1.50,
+        "water": 1.00,
+        "coke": 1.40,
+        "snacks": 2.00
+    }
+
+    if string in my_dict:
+        print(f"{number * my_dict[string]:.2f}")
+
+my_func()
