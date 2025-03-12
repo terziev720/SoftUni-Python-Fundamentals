@@ -1,0 +1,15 @@
+def even_odd(number):
+    number_list = list(map(int, str(number)))
+    add_even = list()
+    add_odd = list()
+
+    for char in number_list:
+        if char % 2 == 0:
+            add_even.append(char)
+        else:
+            add_odd.append(char)
+    return f"Odd sum = {sum(add_odd)}, Even sum = {sum(add_even)}"
+
+num = int(input())
+
+print(even_odd(num))
