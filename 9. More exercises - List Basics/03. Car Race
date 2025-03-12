@@ -1,0 +1,24 @@
+def race_winner(times):
+    middle = len(times) // 2
+
+    car1_time = 0
+    for i in range(middle):
+        car1_time += times[i]
+        if times[i] == 0:
+            car1_time -= car1_time * 0.2
+
+
+    car2_time = 0
+    for i in range(len(times) - 1, middle, -1):
+        car2_time += times[i]
+        if times[i] == 0:
+            car2_time -= car2_time * 0.2
+
+    if car1_time < car2_time:
+        print(f"The winner is left with total time: {car1_time:.1f}")
+    else:
+        print(f"The winner is right with total time: {car2_time:.1f}")
+
+times = list(map(int, input().split()))
+
+race_winner(times)
