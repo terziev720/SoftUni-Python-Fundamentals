@@ -1,0 +1,5 @@
+ints = map(int, input().split(" "))
+
+sorted_ascending = list(sorted(ints))
+
+print(sorted_ascending)
