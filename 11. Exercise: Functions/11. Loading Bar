@@ -1,0 +1,13 @@
+def loading_bar(number):
+    if number < 100:
+        list_char = "%" * (number // 10)
+        char_list = "." * (10 - (number // 10))
+        print(f"{number}% [{list_char}{char_list}]")
+        print("Still loading...")
+    else:
+        print(f"{number}% Complete!")
+        list_char = "%" * (number // 10)
+        print(f"[{list_char}]")
+
+num = int(input())
+loading_bar(num)
