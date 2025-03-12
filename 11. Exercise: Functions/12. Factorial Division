@@ -1,0 +1,13 @@
+import math
+
+def factorial_division(number_one, number_two):
+    factorial_first = math.factorial(number_one)
+    factorial_second = math.factorial(number_two)
+    result = factorial_first / factorial_second
+    print(f"{result:.2f}")
+
+
+num_one = int(input())
+num_two = int(input())
+
+factorial_division(num_one, num_two)
