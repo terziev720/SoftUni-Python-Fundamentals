@@ -1,0 +1,22 @@
+def tictactoe(number_one, number_two, number_three):
+    for row in [number_one, number_two, number_three]:
+        if row[0] == row[1] == row[2] != "0":
+            return "First player won" if row[0] == "1" else "Second player won"
+
+    for i in range(3):
+        if number_one[i] == number_two[i] == number_three[i] != "0":
+            return "First player won" if number_one[i] == "1" else "Second player won"
+
+    if number_one[0] == number_two[1] == number_three[2] != "0":
+        return "First player won" if number_one[0] == "1" else "Second player won"
+    if number_one[2] == number_two[1] == number_three[0] != "0":
+        return "First player won" if number_one[2] == "1" else "Second player won"
+
+    return "Draw!"
+
+
+nums_one = input().split(" ")
+nums_two = input().split(" ")
+nums_three = input().split(" ")
+
+print(tictactoe(nums_one, nums_two, nums_three))
