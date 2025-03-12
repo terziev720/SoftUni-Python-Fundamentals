@@ -1,1 +1,16 @@
+def zeros_to_back(string):
+    zeros = list()
+    no_zeros = list()
 
+    for char in string:
+        if char == "0":
+            zeros.append(char)
+        else:
+            no_zeros.append(char)
+
+    return f"[{', '.join(no_zeros + zeros)}]"
+
+
+my_string = input().split(", ")
+
+print(zeros_to_back(my_string))
