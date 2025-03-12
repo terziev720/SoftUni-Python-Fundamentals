@@ -1,0 +1,6 @@
+def check_palindromes(numbers):
+    for num in numbers:
+        print(str(num) == str(num)[::-1])
+
+nums = list(map(int, input().split(', ')))
+check_palindromes(nums)
