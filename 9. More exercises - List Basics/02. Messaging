@@ -1,0 +1,23 @@
+def sum_of_digits(number):
+    return sum(int(digit) for digit in str(number))
+
+def create_message(numbers, text):
+    message = []
+    while numbers and text:
+
+        current_number = numbers.pop(0)
+        index = sum_of_digits(current_number) % len(text)
+
+
+        char = text[index]
+        message.append(char)
+
+
+        text = text[:index] + text[index + 1:]
+
+    return ''.join(message)
+
+numbers = list(map(int, input().split()))
+text = input()
+
+print(create_message(numbers, text))
