@@ -1,0 +1,14 @@
+def find_sign(num1, num2, num3):
+    if num1 == 0 or num2 == 0 or num3 == 0:
+        return "zero"
+
+    negative_count = sum(1 for num in [num1, num2, num3] if num < 0)
+
+    return "positive" if negative_count % 2 == 0 else "negative"
+
+
+num_one = int(input())
+num_two = int(input())
+num_three = int(input())
+
+print(find_sign(num_one, num_two, num_three))
