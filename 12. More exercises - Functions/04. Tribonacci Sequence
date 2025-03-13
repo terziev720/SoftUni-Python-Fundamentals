@@ -1,0 +1,25 @@
+def tribonacci_sequence(n):
+    if n <= 0:
+        return
+
+    tribonacci = [1, 1, 2]
+
+    if n == 1:
+        print(tribonacci[0])
+        return
+    elif n == 2:
+        print(*tribonacci[:2])
+        return
+    elif n == 3:
+        print(*tribonacci)
+        return
+
+
+    for _ in range(n - 3):
+        tribonacci.append(sum(tribonacci[-3:]))
+
+    print(*tribonacci)
+
+
+num = int(input())
+tribonacci_sequence(num)
