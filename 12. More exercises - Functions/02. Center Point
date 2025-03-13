@@ -1,0 +1,19 @@
+import math
+
+def center_point(x1, x2, y1, y2):
+    dist1 = x1 ** 2 + y1 ** 2
+    dist2 = x2 ** 2 + y2 ** 2
+
+    if dist1 <= dist2:
+        print(f"({math.floor(x1)}, {math.floor(y1)})")
+    else:
+        print(f"({math.floor(x2)}, {math.floor(y2)})")
+
+
+
+x_one = float(input())
+x_two = float(input())
+y_one = float(input())
+y_two = float(input())
+
+center_point(x_one, y_one, x_two, y_two)  
