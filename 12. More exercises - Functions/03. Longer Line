@@ -1,19 +1,30 @@
 import math
 
-def center_point(x1, x2, y1, y2):
+def squared_distance(x1, y1, x2, y2):
+    return (x2 - x1) ** 2 + (y2 - y1) ** 2
+
+def closest_point_to_center(x1, y1, x2, y2):
     dist1 = x1 ** 2 + y1 ** 2
     dist2 = x2 ** 2 + y2 ** 2
-
     if dist1 <= dist2:
-        print(f"({math.floor(x1)}, {math.floor(y1)})")
+        return (math.floor(x1), math.floor(y1)), (math.floor(x2), math.floor(y2))
     else:
-        print(f"({math.floor(x2)}, {math.floor(y2)})")
+        return (math.floor(x2), math.floor(y2)), (math.floor(x1), math.floor(y1))
 
+def print_longer_line(x1, y1, x2, y2, x3, y3, x4, y4):
+    length1 = squared_distance(x1, y1, x2, y2)
+    length2 = squared_distance(x3, y3, x4, y4)
 
+    if length1 >= length2:
+        p1, p2 = closest_point_to_center(x1, y1, x2, y2)
+    else:
+        p1, p2 = closest_point_to_center(x3, y3, x4, y4)
 
-x_one = float(input())
-x_two = float(input())
-y_one = float(input())
-y_two = float(input())
+    print(f"({p1[0]}, {p1[1]})({p2[0]}, {p2[1]})")
 
-center_point(x_one, y_one, x_two, y_two)  
+x_one, y_one = float(input()), float(input())
+x_two, y_two = float(input()), float(input())
+x_three, y_three = float(input()), float(input())
+x_four, y_four = float(input()), float(input())
+
+print_longer_line(x_one, y_one, x_two, y_two, x_three, y_three, x_four, y_four)
