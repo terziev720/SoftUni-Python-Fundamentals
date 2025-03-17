@@ -1,0 +1,6 @@
+words = input().split(" ")
+palindromes = input()   
+palindromes_found = [word for word in words if word == word[::-1]]
+
+print(palindromes_found)
+print(f"Found palindrome {palindromes_found.count(palindromes)} times")
