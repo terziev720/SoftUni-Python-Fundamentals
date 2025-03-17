@@ -1,0 +1,13 @@
+todo = ["" for _ in range(11)]
+
+command = input()
+
+while command != "End":
+    explode = command.split("-")
+    importance = int(explode[0])
+    note = explode[1]
+    todo[importance] = note
+    command = input()
+
+final = [el for el in todo if el != ""]
+print(final)
