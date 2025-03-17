@@ -1,0 +1,8 @@
+numbers = list(map(int, input().split(", ")))
+nums = []   
+
+for i in range(len(numbers)):
+    if numbers[i] % 2 == 0:
+        nums.append(i)
+
+print(nums)
