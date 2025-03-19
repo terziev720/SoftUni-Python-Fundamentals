@@ -1,0 +1,7 @@
+def next_version(version):
+    version = int("".join(version)) + 1
+    result = [str(i) for i in str(version)]
+    return '.'.join(result)
+
+string = input().split(".")
+print(next_version(string))
