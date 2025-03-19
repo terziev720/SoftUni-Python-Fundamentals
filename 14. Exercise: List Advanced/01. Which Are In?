@@ -1,1 +1,5 @@
-
+string1 = input().split(", ")
+string2 = input()
+list1 = [c for c in string1 if c in string2]
+        
+print(list1)
