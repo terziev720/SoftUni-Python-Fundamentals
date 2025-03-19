@@ -1,0 +1,4 @@
+text = input().split(" ")
+
+list1 = [el for el in text if len(el) % 2 == 0]
+print("\n".join(list1))
