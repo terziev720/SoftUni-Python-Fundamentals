@@ -1,0 +1,23 @@
+def electron_distribution(number):
+    shells = []
+    counter = 1
+
+    while True:
+        test = 2 * (counter ** 2)
+
+        if number > test:
+            number -= test
+            shells.append(test)
+        else:
+            shells.append(number)
+            break
+
+        counter += 1
+
+    print(shells)
+
+
+
+
+number_electrons = int(input())
+electron_distribution(number_electrons)
