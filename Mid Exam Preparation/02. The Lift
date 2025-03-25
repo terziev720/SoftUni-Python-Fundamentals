@@ -1,0 +1,21 @@
+def lift_places(peoples, current_state):
+    for i in range(len(current_state)):
+        if peoples == 0:
+            break
+        space_left = 4 - current_state[i]
+        if space_left > 0:
+            to_add = min(peoples, space_left)
+            current_state[i] += to_add
+            peoples -= to_add
+
+    if peoples == 0 and any(space < 4 for space in current_state):
+        print(f"The lift has empty spots!\n{' '.join(map(str, current_state))}")
+    elif peoples > 0 and all(space == 4 for space in current_state):
+        print(f"There isn't enough space! {peoples} people in a queue!\n{' '.join(map(str, current_state))}")
+    else:
+        print(" ".join(map(str, current_state)))
+
+people = int(input())
+lift_state = list(map(int, input().split()))
+
+lift_places(people, lift_state)
