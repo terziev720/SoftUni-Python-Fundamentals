@@ -1,0 +1,31 @@
+def modify_list(pokemon_list, removed_value):
+    for i in range(len(pokemon_list)):
+        if pokemon_list[i] <= removed_value:
+            pokemon_list[i] += removed_value
+        else:
+            pokemon_list[i] -= removed_value
+
+
+def catch_pokemon():
+    pokemon_list = list(map(int, input().split())) 
+    total_sum = 0 
+
+    while pokemon_list:
+        index = int(input()) 
+
+        if index < 0:  
+            removed_value = pokemon_list[0]
+            pokemon_list[0] = pokemon_list[-1]
+        elif index >= len(pokemon_list):  
+            removed_value = pokemon_list[-1]
+            pokemon_list[-1] = pokemon_list[0]
+        else:
+            removed_value = pokemon_list.pop(index)
+
+        total_sum += removed_value  
+        modify_list(pokemon_list, removed_value)  
+
+    print(total_sum)  
+
+
+catch_pokemon()
