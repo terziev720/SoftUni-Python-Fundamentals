@@ -1,0 +1,23 @@
+def shoot_for_the_win(targets):
+    command = input()
+    
+    while command != "End":
+        command = int(command)
+        
+        if command < len(targets):
+            if targets[command] != -1:
+                target = targets[command]
+                targets[command] = -1
+                for i in range(len(targets)):
+                    if targets[i] != -1:
+                        if targets[i] > target:
+                            targets[i] -= target
+                        else:
+                            targets[i] += target
+        command = input()
+    return f"Shot targets: {len([target for target in targets if target == -1])} -> {' '.join(map(str, targets))}"
+        
+
+
+targets = list(map(int, input().split()))
+print(shoot_for_the_win(targets))
