@@ -1,0 +1,19 @@
+def decipher_text(text):
+    deciphered_words = []
+    
+    for word in text.split():
+        num_part = "".join([char for char in word if char.isdigit()])
+        char_part = "".join([char for char in word if not char.isdigit()])
+        
+        first_letter = chr(int(num_part))
+        
+        if len(char_part) > 1:
+            char_part = char_part[-1] + char_part[1:-1] + char_part[0]
+        
+        deciphered_words.append(first_letter + char_part)
+
+    print(" ".join(deciphered_words))
+
+
+word = input()
+decipher_text(word)
