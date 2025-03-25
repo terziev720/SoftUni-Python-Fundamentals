@@ -1,0 +1,26 @@
+def moving_target(target):
+    command = input().split()
+    while command[0] != "End":
+        if command[0] == "Shoot":
+            index, power = int(command[1]), int(command[2])
+            if 0 <= index < len(target):
+                target[index] -= power
+                if target[index] <= 0:
+                    target.pop(index)
+        elif command[0] == "Add":
+            index, value = int(command[1]), int(command[2])
+            if 0 <= index < len(target):
+                target.insert(index, value)
+            else:
+                print("Invalid placement!")
+        elif command[0] == "Strike":
+            index, radius = int(command[1]), int(command[2])
+            if 0 <= index - radius and index + radius < len(target):
+                target = target[:index - radius] + target[index + radius + 1:]
+            else:
+                print("Strike missed!")
+        command = input().split()
+    print("|".join(map(str, target)))
+
+targets = list(map(int, input().split()))
+moving_target(targets)
