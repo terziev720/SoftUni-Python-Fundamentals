@@ -1,0 +1,35 @@
+def memory_game(sequence):
+    count_moves = 1  
+    while True:
+        command = input()
+        if command == "end":
+            if len(sequence) > 0:
+                print("Sorry you lose :(")
+                print(' '.join(sequence))
+            else:
+                print(f"You have won in {count_moves - 1} turns!")
+            break
+
+        tokens = command.split()
+        idx_one = int(tokens[0])
+        idx_two = int(tokens[1])
+
+        if idx_one != idx_two and 0 <= idx_one < len(sequence) and 0 <= idx_two < len(sequence):
+            if sequence[idx_one] == sequence[idx_two]: 
+                print(f"Congrats! You have found matching elements - {sequence[idx_one]}!")
+                sequence = [v for i, v in enumerate(sequence) if i != idx_one and i != idx_two]
+            else:
+                print("Try again!")
+        else:
+            print("Invalid input! Adding additional elements to the board")
+            mid_point = len(sequence) // 2
+            sequence = sequence[:mid_point] + [f"-{count_moves}a", f"-{count_moves}a"] + sequence[mid_point:]
+
+        if len(sequence) == 0:
+            print(f"You have won in {count_moves} turns!")
+            break
+
+        count_moves += 1
+
+sequence = input().split()
+memory_game(sequence)
