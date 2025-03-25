@@ -1,0 +1,11 @@
+numbers = list(map(int, input().split(", ")))
+
+max_number = max(numbers)
+group = 10
+
+while numbers:
+    current_group = [num for num in numbers if num <= group and num > group - 10]
+    numbers = [num for num in numbers if num not in current_group]
+
+    print(f"Group of {group}'s: {current_group}")
+    group += 10
