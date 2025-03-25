@@ -1,0 +1,76 @@
+def add(schedule_lesson, lesson_title):
+    if lesson_title not in schedule_lesson:
+        schedule_lesson.append(lesson_title)
+
+def insert(schedule_lesson, lesson_title, index):
+    if lesson_title not in schedule_lesson:
+        schedule_lesson.insert(index, lesson_title)
+
+def remove(schedule_lesson, lesson_title):
+    lesson_exercise = lesson_title + "-Exercise"
+    if lesson_title in schedule_lesson:
+        schedule_lesson.remove(lesson_title)
+        if lesson_exercise in schedule_lesson:
+            schedule_lesson.remove(lesson_exercise)
+
+def swap(schedule_lesson, lesson_title_1, lesson_title_2):
+    lesson_exercise_1 = lesson_title_1 + "-Exercise"
+    lesson_exercise_2 = lesson_title_2 + "-Exercise"
+
+    if lesson_title_1 in schedule_lesson and lesson_title_2 in schedule_lesson:
+        pos_1 = schedule_lesson.index(lesson_title_1)
+        pos_2 = schedule_lesson.index(lesson_title_2)
+        schedule_lesson[pos_1], schedule_lesson[pos_2] = schedule_lesson[pos_2], schedule_lesson[pos_1]
+
+        if lesson_exercise_1 in schedule_lesson and lesson_exercise_2 in schedule_lesson:
+            schedule_lesson[pos_1 + 1], schedule_lesson[pos_2 + 1] = schedule_lesson[pos_2 + 1], schedule_lesson[pos_1 + 1]
+        elif lesson_exercise_1 in schedule_lesson:
+            schedule_lesson.remove(lesson_exercise_1)
+            schedule_lesson.insert(pos_2 + 1, lesson_exercise_1)
+        elif lesson_exercise_2 in schedule_lesson:
+            schedule_lesson.remove(lesson_exercise_2)
+            schedule_lesson.insert(pos_1 + 1, lesson_exercise_2)
+
+def exercise(schedule_lesson, lesson_title):
+    lesson_exercise = lesson_title + "-Exercise"
+    if lesson_title not in schedule_lesson:
+        schedule_lesson.append(lesson_title)
+        schedule_lesson.append(lesson_exercise)
+    elif lesson_exercise not in schedule_lesson:
+        lesson_index = schedule_lesson.index(lesson_title)
+        schedule_lesson.insert(lesson_index + 1, lesson_exercise)
+
+def process_commands(schedule_lesson, commands):
+    for command in commands:
+        parts = command.split(":")
+        if parts[0] == "Add":
+            lesson_title = parts[1]
+            add(schedule_lesson, lesson_title)
+        elif parts[0] == "Insert":
+            lesson_title = parts[1]
+            index = int(parts[2])
+            insert(schedule_lesson, lesson_title, index)
+        elif parts[0] == "Remove":
+            lesson_title = parts[1]
+            remove(schedule_lesson, lesson_title)
+        elif parts[0] == "Swap":
+            lesson_title_1 = parts[1]
+            lesson_title_2 = parts[2]
+            swap(schedule_lesson, lesson_title_1, lesson_title_2)
+        elif parts[0] == "Exercise":
+            lesson_title = parts[1]
+            exercise(schedule_lesson, lesson_title)
+    return schedule_lesson
+
+schedule_lesson = input().split(', ')
+commands = []
+while True:
+    command = input()
+    if command == "course start":
+        break
+    commands.append(command)
+
+result = process_commands(schedule_lesson, commands)
+
+for index, item in enumerate(result, start=1):
+    print(f"{index}.{item}")
