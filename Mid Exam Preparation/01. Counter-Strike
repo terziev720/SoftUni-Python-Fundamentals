@@ -1,0 +1,24 @@
+def counter_strike(energy):
+    command = input()
+    won_battles = 0
+    energy_left = energy
+    
+    while command != "End of battle" and energy_left >= 0:
+        command = int(command)
+        
+        if energy_left < command:
+            print(f"Not enough energy! Game ends with {won_battles} won battles and {energy_left} energy")
+            break
+        
+        
+        energy_left -= command
+        won_battles += 1
+        if won_battles % 3 == 0:
+            energy_left += won_battles
+        command = input()
+    else:
+        print(f"Won battles: {won_battles}. Energy left: {energy_left}")
+    
+
+initial_energy = int(input())
+counter_strike(initial_energy)
