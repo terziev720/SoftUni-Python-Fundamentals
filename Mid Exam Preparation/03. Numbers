@@ -1,0 +1,15 @@
+def numbers(number):
+    average = sum(number) / len(number)  
+    greater_than_average = [n for n in number if n > average]  
+    
+    if len(greater_than_average) > 5:
+        top_five = sorted(greater_than_average, reverse=True)[:5]
+    elif len(greater_than_average) > 0:
+        top_five = sorted(greater_than_average, reverse=True)
+    else:
+        return "No"
+    
+    return " ".join(map(str, top_five))
+
+integers = list(map(int, input().split()))  
+print(numbers(integers))  
