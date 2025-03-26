@@ -1,0 +1,33 @@
+def treasure_hunt(loot):
+    while True:
+        command = input().split()
+        
+        if command[0] == "Yohoho!":
+            break
+        elif command[0] == "Loot":
+            for item in command[1:]:
+                if item not in loot:
+                    loot.insert(0, item)
+        elif command[0] == "Drop":
+            index = int(command[1])
+            if 0 <= index < len(loot):
+                item = loot.pop(index)
+                loot.append(item)
+        elif command[0] == "Steal":
+            count = int(command[1])
+            if count > len(loot):
+                count = len(loot)
+            stolen_items = loot[-count:]
+            loot = loot[:-count]
+            print(", ".join((stolen_items)))
+            
+    if not loot:
+        print("Failed treasure hunt.")
+    else:
+        average_treasure_gain = sum(int(len(item)) for item in loot) / len(loot)
+        print(f"Average treasure gain: {average_treasure_gain:.2f} pirate credits.")            
+            
+
+
+initial_loot = input().split("|")
+treasure_hunt(initial_loot)
